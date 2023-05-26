@@ -10,7 +10,6 @@ The User Information Backend API by GraphQL
 
 ```bash
 ## Backend - initial API (Initial the MongoDB)
-cd backend
 npm install
 npm start
 ```
