@@ -1,0 +1,21 @@
+query {
+  getUserByEmail(
+    email: "test@test.com"
+  ) {
+    id
+    name
+  }
+}
+
+mutation {
+  createUser ( user: {
+    email: "test@test.com",
+    name: "test",
+    password: "1234"
+  }) {
+    id
+    email
+    name
+    password
+  }
+}
