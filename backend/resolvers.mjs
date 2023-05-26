@@ -38,6 +38,16 @@ export const resolvers = {
         checkEmail: async (parent, { email }, context, info) => {
             return await User.exists({ email: email })
         },
+
+        // Check Login Information is Correct or Not
+        // Return Boolean Value
+        loginAuthCheck: async (parent, { email, password }, context, info) => {
+            if (await User.findOne({ email: email, password: password }).exec()) {
+                return true;
+            } else {
+                return false;
+            }
+        },
     },
     Mutation: {
         createUser: async (parent, args, context, info) => {
@@ -50,6 +60,22 @@ export const resolvers = {
         deleteUser: async (parent, { id }, context, info) => {
             await User.findByIdAndDelete(id);
             return 'User Deleted';
+        },
+        updateUser: async (parent, args, context, info) => {
+            const { id } = args;
+            const { name, email, password } = args.user;
+            const updates = {};
+            if (name !== undefined) {
+                updates.name = name;
+            }
+            if (email !== undefined) {
+                updates.email = email;
+            }
+            if (password !== undefined) {
+                updates.password = password;
+            }
+            const user = await user.findByIdAndUpdate(id, updates, {new: true});
+            return user;
         }
     },
 };

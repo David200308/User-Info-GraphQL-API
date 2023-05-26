@@ -1,5 +1,6 @@
 # User Info GraphQL API
-The User Information Backend API by GraphQL
+
+The User Information Backend API by GraphQL with MongoDB.
 
 ## Programming Language & Framework
 
@@ -14,11 +15,14 @@ npm install
 npm start
 ```
 
-## Structure
+## Functions
 
 - User Creating
+- User Delete
+- User Update Information
 - User Searching
 - Check Exist or Not
+- Login Authorizate Check
 
 ## Creator
 

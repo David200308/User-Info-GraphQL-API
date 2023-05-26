@@ -22,10 +22,12 @@ export const typeDefs = gql`
         getUserById(id: ID): User
         checkName(name: String): Boolean
         checkEmail(email: String): Boolean
+        loginAuthCheck(email: String, password: String): Boolean
     }
 
     type Mutation {
         createUser(user: UserInput): User
         deleteUser(id: ID): String
+        updateUser(id: ID, user: UserInput): User
     }
 `;
